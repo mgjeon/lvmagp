@@ -6,7 +6,7 @@ from clu.command import Command
 
 from lvmagp.actor.commfunc import LVMEastCamera  # noqa: F401
 from lvmagp.actor.commfunc import (
-    LVMFiborselector,
+    LVMFiberselector,
     LVMFocuser,
     LVMKMirror,
     LVMTelescope,
@@ -15,7 +15,9 @@ from lvmagp.actor.commfunc import (
 from lvmagp.actor.internalfunc import GuideImage  # noqa: F403
 from lvmagp.actor.user_parameters import usrpars
 
-from . import command_parser as parser
+from . import parser
+
+from typing import Dict
 
 
 @parser.group()
@@ -28,11 +30,11 @@ def guide(*args):
 @click.option("--useteldata", type=float, is_flag=True)
 async def start(
     command: Command,
-    telescopes: dict[str, LVMTelescope],
-    eastcameras: dict[str, LVMEastCamera],
-    westcameras: dict[str, LVMWestCamera],
-    focusers: dict[str, LVMFocuser],
-    kmirrors: dict[str, LVMKMirror],
+    telescopes: Dict[str, LVMTelescope],
+    eastcameras: Dict[str, LVMEastCamera],
+    westcameras: Dict[str, LVMWestCamera],
+    focusers: Dict[str, LVMFocuser],
+    kmirrors: Dict[str, LVMKMirror],
     tel: str,
     useteldata: bool,
 ):
@@ -82,11 +84,11 @@ async def start(
 @click.argument("TEL", type=str)
 async def stop(
     command: Command,
-    telescopes: dict[str, LVMTelescope],
-    eastcameras: dict[str, LVMEastCamera],
-    westcameras: dict[str, LVMWestCamera],
-    focusers: dict[str, LVMFocuser],
-    kmirrors: dict[str, LVMKMirror],
+    telescopes: Dict[str, LVMTelescope],
+    eastcameras: Dict[str, LVMEastCamera],
+    westcameras: Dict[str, LVMWestCamera],
+    focusers: Dict[str, LVMFocuser],
+    kmirrors: Dict[str, LVMKMirror],
     tel: str,
 ):
     """
@@ -114,11 +116,11 @@ async def stop(
 @click.argument("TEL", type=str)
 async def calibration(
     command: Command,
-    telescopes: dict[str, LVMTelescope],
-    eastcameras: dict[str, LVMEastCamera],
-    westcameras: dict[str, LVMWestCamera],
-    focusers: dict[str, LVMFocuser],
-    kmirrors: dict[str, LVMKMirror],
+    telescopes: Dict[str, LVMTelescope],
+    eastcameras: Dict[str, LVMEastCamera],
+    westcameras: Dict[str, LVMWestCamera],
+    focusers: Dict[str, LVMFocuser],
+    kmirrors: Dict[str, LVMKMirror],
     tel: str,
 ):
     """
@@ -239,11 +241,11 @@ async def calibration(
 
 async def autoguide_supervisor(
     command,
-    telescopes: dict[str, LVMTelescope],
-    eastcameras: dict[str, LVMEastCamera],
-    westcameras: dict[str, LVMWestCamera],
-    focusers: dict[str, LVMFocuser],
-    kmirrors: dict[str, LVMKMirror],
+    telescopes: Dict[str, LVMTelescope],
+    eastcameras: Dict[str, LVMEastCamera],
+    westcameras: Dict[str, LVMWestCamera],
+    focusers: Dict[str, LVMFocuser],
+    kmirrors: Dict[str, LVMKMirror],
     tel,
     useteldata,
 ):
@@ -288,11 +290,11 @@ async def autoguide_supervisor(
 
 async def find_guide_stars(
     command,
-    telescopes: dict[str, LVMTelescope],
-    eastcameras: dict[str, LVMEastCamera],
-    westcameras: dict[str, LVMWestCamera],
-    focusers: dict[str, LVMFocuser],
-    kmirrors: dict[str, LVMKMirror],
+    telescopes: Dict[str, LVMTelescope],
+    eastcameras: Dict[str, LVMEastCamera],
+    westcameras: Dict[str, LVMWestCamera],
+    focusers: Dict[str, LVMFocuser],
+    kmirrors: Dict[str, LVMKMirror],
     tel,
     positionguess=None,
 ):
@@ -340,11 +342,11 @@ async def find_guide_stars(
 
 async def autoguiding(
     command,
-    telescopes: dict[str, LVMTelescope],
-    eastcameras: dict[str, LVMEastCamera],
-    westcameras: dict[str, LVMWestCamera],
-    focusers: dict[str, LVMFocuser],
-    kmirrors: dict[str, LVMKMirror],
+    telescopes: Dict[str, LVMTelescope],
+    eastcameras: Dict[str, LVMEastCamera],
+    westcameras: Dict[str, LVMWestCamera],
+    focusers: Dict[str, LVMFocuser],
+    kmirrors: Dict[str, LVMKMirror],
     tel,
     initposition,
     initflux,
