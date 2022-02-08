@@ -46,9 +46,8 @@ class LVMFocuser:
         self._foc = None
 
         try:
-            # self._foc = Proxy(self.amqpc, "lvm." + tel + ".foc")
-            # self._foc.start()
-            pass
+            self._foc = Proxy(self.amqpc, "lvm." + tel + ".foc")
+            self._foc.start()
 
         except Exception as e:
             self.amqpc.log.error(f"{datetime.datetime.now()} | {e}")
@@ -139,9 +138,8 @@ class LVMKMirror:
         self._km = None
 
         try:
-            # self._km = Proxy(self.amqpc, "lvm." + tel + ".km")
-            # self._km.start()
-            pass
+            self._km = Proxy(self.amqpc, "lvm." + tel + ".km")
+            self._km.start()
 
         except Exception as e:
             self.amqpc.log.error(f"{datetime.datetime.now()} | {e}")
@@ -185,9 +183,8 @@ class LVMFiberselector:
         self._fibsel = None
 
         try:
-            # self._fibsel = Proxy(self.amqpc, "lvm." + tel + ".fibsel")
-            # self._fibsel.start()
-            pass
+            self._fibsel = Proxy(self.amqpc, "lvm." + tel + ".fibsel")
+            self._fibsel.start()
 
         except Exception as e:
             self.amqpc.log.error(f"{datetime.datetime.now()} | {e}")
@@ -221,9 +218,8 @@ class LVMTelescope:
         self.ag_break = False
 
         try:
-            # self._pwi = Proxy(self.amqpc, self.lvmpwi)
-            # self._pwi.start()
-            pass
+            self._pwi = Proxy(self.amqpc, self.lvmpwi)
+            self._pwi.start()
 
         except Exception as e:
             self.amqpc.log.error(f"{datetime.datetime.now()} | {e}")
@@ -462,9 +458,8 @@ class LVMEastCamera(LVMCamera):
         self.camname = tel + ".age"
 
         try:
-            # self._cam = Proxy(self.amqpc, self.lvmcam)
-            # self._cam.start()
-            pass
+            self._cam = Proxy(self.amqpc, self.lvmcam)
+            self._cam.start()
         except Exception as e:
             self.amqpc.log.error(f"{datetime.datetime.now()} | {e}")
             raise
@@ -487,9 +482,8 @@ class LVMWestCamera(LVMCamera):
         self.camname = tel + ".agw"
 
         try:
-            # self._cam = Proxy(self.amqpc, self.lvmcam)
-            # self._cam.start()
-            pass
+            self._cam = Proxy(self.amqpc, self.lvmcam)
+            self._cam.start()
         except Exception as e:
             self.amqpc.log.error(f"{datetime.datetime.now()} | {e}")
             raise
