@@ -17,6 +17,7 @@ This is the documentation for the SDSS Python product lvmagp. The current versio
 
   api
   actor-commands
+  module
 
 .. toctree::
   :caption: Development
